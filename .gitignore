@@ -1,0 +1,15 @@
+repos/
+old_repos/
+.Rproj.user
+.RData
+.Rhistory
+
+env
+.ipynb_checkpoints
+__pycache__
+.obsidian
+
+rebola/data
+ebola-server/flask/data
+
+
