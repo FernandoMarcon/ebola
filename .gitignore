@@ -13,4 +13,10 @@ rebola/data
 ebola-server/flask/data
 
 rebola/.RData
-
+*.wt
+*.lock
+*.turtle
+*.bson
+WiredTiger
+journal/
+diagnostic.data/
