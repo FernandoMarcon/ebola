@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="{{url_for('static', filename='css/nav-style.css')}}">
+<!-- <nav class="nav-main"> -->
+<nav class="navigation-links3-nav">
+  
+  <!-- navbar logo -->
+  <div class="navbar-logo ">
+    <span class="text"><span style="color:darkred;">W</span><em style="color: black;">Ebola</em></span>
+  </div>
+  
+  <!-- navbar menu -->
+  <div class="nav-menu navigation-links3-nav"> 
+    <nav class="navigation-links3-nav rootClassName15 ">
+      <span class="navigation-links3-text">
+        <span class="navigation-links"><a href="{{ url_for('gene_level_analysis') }}" class="nav-link {% if gene_level_analysis %}active{% endif %}">Gene-level Analysis</a></span>
+        <span class="navigation-links"><a href="{{ url_for('immunogenicity') }}" class="nav-link {% if immunogenicity %}active{% endif %}">Immunogenicity</a></span>
+        <span class="navigation-links"><a href="{{ url_for('reactogenicity') }}" class="nav-link {% if reactogenicity %}active{% endif %}">Reactogenicity</a></span>
+      </span>
+    </nav>
+  </div>
+  
+  <span class="navigation-links3-text"><span></span></span>
+  <!-- navbar icons -->
+  <div class="nav-icons">
+    <span class="home-icon"><i class="fas fa-home"></i></span>
+    <span class="home-icon"><i class="fas fa-question"></i></span>
+  </div>
+</nav>

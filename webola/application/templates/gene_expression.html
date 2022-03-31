@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <title>Gene-level Analysis</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}">
+    <script src="{{url_for('static',filename='js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/plotly-latest.js')}}"></script>
+
+    <script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-graph.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-data-adapter.min.js"></script>
+
+  </head>
+  <body>
+
+    <header class="input-session">
+      <div class="dropdown" id="navbar">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+          {% for item in menu_options['main'] %}
+          <a href="">{{item}}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </header>
+
+    <!-- INPUT -->
+    <div class="container-fluid p-1 text-center text-white" id="main" style="background-color: #5A1011;">
+
+      <div class="col">
+
+        <div class="row">
+          <h1>Gene-level Analysis</h1>
+          <p>Description</p>
+        </div>
+
+        <div class="row-mt-5" id="input">
+
+          <!-- Cohort  -->
+          <div id="cohort" class="col dropdown">
+            <button class="dropbtn" d="cohort">Cohort</button>
+            <div class="dropdown-content">
+              {% for cohort in menu_options['cohorts']%}
+              <a href="{{cohort}}">{{cohort}}</a>
+              {% endfor %}
+
+            </div>
+          </div>
+
+          <!-- Comparison -->
+          <div class="col dropdown" id="comp">
+            <button class="dropbtn" id="comp">Select Day</button>
+            <div class="dropdown-content">
+              {% for comp in menu_options['comps'] %}
+              <a href="{{comp}}">{{comp}}</a>
+              {% endfor %}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- PLOTS -->
+    <div class="container-fluid p-2 row" id="plots">
+      <!-- <div class="container-fluid p-2 plots row" id="plots"> -->
+        <!-- <div class="container" id="plots"> -->
+
+          <div class="row">
+
+            <!-- VOLCANO PLOT -->
+            <div class="col-sm-6 volcano" id="volcano">
+              <!-- TITLE -->
+              <div class="volcano-title" id="volcano-title">
+                <h6>Volcano Plot</h6>
+              </div>
+
+              <!-- INPUT -->
+              <div class="volcano-input" id="volcano-input">
+                <!-- Fold-Change -->
+                <div id="fc" class="slidecontainer">
+                  <label for="fc_thrs">FC Threshold</label>
+                  <input type="range" min="0" max="3" value="0.322" class="slider" id="fc_thrs">
+                  <span id="fc_output"></span>
+                  <script>
+                    // FC Thrs Slider
+                    var fc_slider = document.getElementById("fc_thrs")
+                    var fc_output = document.getElementById("fc_output")
+                    fc_output.innerHTML = fc_slider.value;
+                    fc_slider.oninput = function () {
+                      fc_output.innerHTML = this.value;
+                    }
+                  </script>
+                </div>
+
+                <!-- PValue -->
+                <div id="pval" class="slidecontainer">
+                  <label for="pval_thrs">FDR Threshold</label>
+                  <input type="range" min="0" max="1" value="0.01" class="slider" id="pval_thrs">
+                  <span id="pval_output"></span>
+                  <script>
+                    // Pvalue Thrs Slider
+                    var pval_slider = document.getElementById("pval_thrs")
+                    var pval_output = document.getElementById("pval_output")
+                    pval_output.innerHTML = pval_slider.value;
+                    pval_slider.oninput = function () {
+                      pval_output.innerHTML = this.value;
+                    }
+                  </script>
+                </div>
+              </div>
+
+              <!-- PLOT -->
+              <div class="volcano-plot" id="volcano-plot"></div>
+            </div>
+
+            <!-- GENE EXPRESSION PLOTS -->
+            <div class="col-sm-6" id="gene">
+
+              <!-- BOXPLOT -->
+              <div id="gene-boxplot" class="gene-boxplot row">
+                <!-- TITLE -->
+                <div id="gene-boxplot-title" class="gene-boxplot-title"><h6>Gene Expression Boxplot</h6></div>
+
+                <!-- INPUT -->
+                <div id="gene-boxplot-input" class="gene-boxplot-input"></div>
+
+                <!-- PLOT -->
+                <div id="gene-boxplot-plot" class="gene-boxplot-plot"></div>
+              </div>
+
+              <!-- GENE CORRELATION NETWORK -->
+              <div id="gene-corr" class="gene-corr row">
+                <!-- TITLE -->
+                <div id="gene-corr-title" class="gene-corr-title"><h6>Gene Network</h6></div>
+
+                <!-- INPUT -->
+                <div id="gene-corr-input" class="slidecontainer gene-corr-input">
+                  <label for="geneCorr_thrs">Absolute Correlation Coefficient</label>
+                  <input type="range" min="-1" max="1" value="0.7" class="slider" id="geneCorr_thrs">
+                  <span id="geneCorr_output"></span>
+                  <script>
+                    // Gene Corr Thrs Slider
+                    var geneCorr_slider = document.getElementById("geneCorr_thrs")
+                    var geneCorr_output = document.getElementById("geneCorr_output")
+                    geneCorr_output.innerHTML = geneCorr_slider.value;
+                    geneCorr_slider.oninput = function () {
+                      geneCorr_output.innerHTML = this.value;
+                    }
+                  </script>
+                </div>
+
+                <!-- PLOT -->
+                <div id="gene-corr-plot" class="gene-corr-plot"></div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+    <!-- <main class="container-fluid p-2" id="container">  </main> -->
+
+    <script type="text/javascript">
+
+      function newDiv(div_id, base_div) {
+        document.getElementById(div_id).remove();
+        const newDiv = document.createElement("div");
+        newDiv.setAttribute("id", div_id);
+        document.getElementById(base_div).appendChild(newDiv);
+      }
+
+      function plotGeneExpression(gene_name) {
+        const div_name = "gene-boxplot-plot"
+        newDiv(div_name, "gene-boxplot");
+        fetch('genes/boxplot/'+gene_name)
+        .then(response => response.json())
+        .then(data => {
+          Plotly.plot(div_name, data, {})
+        });
+      }
+
+      function plotGeneNetwork(gene_name) {
+        const div_name = "gene-corr-plot"
+        newDiv(div_name, "gene-corr");
+        fetch('/genes/corr/'+gene_name)
+        .then(response => response.json())
+        .then(data => {
+          var chart = anychart.graph(data);
+          chart.container("gene-corr-plot").draw();
+
+          var nodes = chart.nodes();
+
+          // set the size of nodes
+          nodes.normal().height(10);
+          nodes.hovered().height(15);
+          nodes.selected().height(15);
+
+          // set the fill of nodes
+          // nodes.normal().fill("blue");
+          nodes.hovered().fill("grey");
+          nodes.selected().fill("black");
+
+          // set the stroke of nodes
+          nodes.normal().stroke(null);
+          nodes.hovered().stroke("#333333", 3);
+          nodes.selected().stroke("#333333", 3);
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+
+        var graphs = {{volcano | safe}};
+        var myPlot = Plotly.plot('volcano-plot', graphs, {});
+
+        document.getElementById('volcano-plot').on('plotly_click', (data) => {
+          const gene = data['points'][0]['customdata'][0];
+          plotGeneExpression(gene);
+          plotGeneNetwork(gene);
+        });
+
+      });
+
+    </script>
+
+  </body>
+</html>

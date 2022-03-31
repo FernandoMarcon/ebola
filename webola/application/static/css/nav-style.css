@@ -1,0 +1,109 @@
+/* NAVBAR */
+nav {
+  background-color: #f7601b;
+  width: 100%;
+  flex: inherit;
+  flex-direction: row;
+  display: inline-flex;
+  align-items: center;
+  align-content: stretch;
+  align-self: center;
+  align-items: center;
+  flex: content;
+}
+
+.navbar-logo {
+  flex: content;
+  margin-left: var(--dl-space-space-twounits);
+  margin-right: var(--dl-space-space-twounits);
+  align-content: stretch;
+  align-self: center;
+  align-items: center;
+}
+
+.navigation-links3-nav {
+    flex: auto;
+  flex: 0 0 auto ;
+  margin-right: var(--dl-space-space-twounits);
+
+  display: inline-flex;
+  flex-flow: row;
+  
+  position: inherit;
+  align-items: center;
+  align-content: stretch;
+  align-self: center;
+  
+}
+
+.navigation-links {
+  font-size: 16px;
+  flex-flow: row;
+  /* align-self: center; */
+  color: #ffffff;
+  margin-left: var(--dl-space-space-twounits);
+  margin-right: var(--dl-space-space-twounits);
+    
+}
+
+.navigation-links a.active {
+  background-color: #000000;
+  border-radius: 8px;
+  border-width: 1cm;
+  border-color: #000000;
+}
+
+.navigation-links3-text {
+  align-self: auto;
+  flex-flow: row;
+  align-content: stretch;
+}
+
+.rootClassName15 {
+  align-self: center;
+}
+@media (max-width: 767px) {
+  .navigation-links3-nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .navigation-links3-text {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .navigation-links3-text1 {
+    margin-left: 0;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .navigation-links3-text2 {
+    margin-left: 0;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .navigation-links3-text3 {
+    margin-left: 0;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+}
+
+.nav-icons {
+    flex: content;
+    /* flex: inherit; */
+    /* flex-flow: row; */
+
+  margin-right: var(--dl-space-space-twounits);
+  margin-left: var(--dl-space-space-twounits);
+  align-content: inherit;
+  align-self: center;
+
+
+  padding-right: var(--dl-space-space-twounits); 
+  flex-direction: row;
+  flex-basis: content;
+}
+
+/* .nav-menu {
+    flex: inherit;
+    flex-direction: row;
+    flex-basis: inherit;
+    align-content: space-around;
+
+} */

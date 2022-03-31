@@ -1,0 +1,133 @@
+{% extends "layout.html"%}
+{% block content %}
+
+<style>
+  .anychart-credits {
+    display: none;
+  }
+</style>
+
+<script src="{{url_for('static', filename='js/plotly-latest.js')}}"></script>
+<script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-core.min.js"></script>
+<script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-graph.min.js"></script>
+<script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-data-adapter.min.js"></script>
+
+
+<header data-role="Accordion" class="gene_level_analysis-title-menu">
+  <h1 class="gene_level_analysis-page-ttitle">{{title}}</h1>
+  <div class="gene_level_analysis-main-menu-row">
+    <div class="gene_level_analysis-main-menu-group">
+      <button class="gene_level_analysis-button button">
+        Select the cohort
+      </button>
+      <!-- CRETE DROP DOWN HERE -->
+      <input type="text">
+      <button class="gene_level_analysis-button1 button">
+        Select the timepoint
+      </button>
+      <!-- CRETE DROP DOWN HERE -->
+
+    </div>
+
+  </div>
+</header>
+
+<div class="gene_level_analysis-content">
+
+  <!-- VOLCANO -->
+  <div class="gene_level_analysis-volcano">
+
+    <!-- INPUT -->
+    <div class="gene_level_analysis-volcano-input">
+
+      <!-- logFC -->
+      <div class="gene_level_analysis-log-f-c">
+        <span class="gene_level_analysis-text4">
+          Log2 fold-change threshold
+        </span>
+        <!-- CREATE RANGE HERE -->
+      </div>
+
+
+      <!-- FDR -->
+      <div class="gene_level_analysis-f-d-r">
+        <span class="gene_level_analysis-text5">FDR</span>
+        <!-- CREATE RANGE HERE -->
+      </div>
+    </div>
+    <!-- PLOT VOLCANO -->
+    <div class="gene_level_analysis-volcano-plot" id="volcano-plot">
+      <!-- <h3 id="volcano-title">Volcano Plot {{ cohort }} {{ timepoint }}</h3> -->
+    </div>
+
+  </div>
+
+
+
+  <div class="gene_level_analysis-gene">
+
+
+    <!-- GENE EXPRESSION -->
+    <div class="gene_level_analysis-gene-exprs">
+
+      <!-- Input -->
+      <div class="gene_level_analysis-gene-exprs-input">
+
+      <h3 id="gene-name"></h3>
+        <div class="gene_level_analysis-search-gene">
+          <svg viewBox="0 0 1024 1024" class="gene_level_analysis-icon2">
+            <path
+              d="M684.416 676.523c-1.451 1.109-2.859 2.347-4.224 3.712s-2.56 2.731-3.712 4.224c-53.675 51.755-126.677 83.541-207.147 83.541-82.475 0-157.099-33.365-211.2-87.467s-87.467-128.725-87.467-211.2 33.365-157.099 87.467-211.2 128.725-87.467 211.2-87.467 157.099 33.365 211.2 87.467 87.467 128.725 87.467 211.2c0 80.469-31.787 153.472-83.584 207.189zM926.165 865.835l-156.8-156.8c52.523-65.707 83.968-149.035 83.968-239.701 0-106.027-43.008-202.069-112.469-271.531s-165.504-112.469-271.531-112.469-202.069 43.008-271.531 112.469-112.469 165.504-112.469 271.531 43.008 202.069 112.469 271.531 165.504 112.469 271.531 112.469c90.667 0 173.995-31.445 239.701-83.968l156.8 156.8c16.683 16.683 43.691 16.683 60.331 0s16.683-43.691 0-60.331z">
+            </path>
+          </svg>
+          <div class="gene_level_analysis-container1">
+            <span class="gene_level_analysis-text6">
+              Search gene...
+            </span>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Plot -->
+      <div id="gene-boxplot-plot" class="gene_level_analysis-gene-exprs-plot"></div>
+    </div>
+
+    <!-- GENE CORRELATION NETWORK -->
+    <div class="gene_level_analysis-gene-corr">
+
+      <!-- Input -->
+      <div class="gene_level_analysis-gene-cor-input">
+        <span class="gene_level_analysis-text7">|R| threshold</span>
+        <!-- Create Range Here -->
+      </div>
+
+      <!-- Plot -->
+      <div id="gene-corr-plot" class="gene_level_analysis-gene-corr-plot"></div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="{{url_for('static',filename='js/gene_level_analysis.js')}}"></script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', () => {
+  
+    var graphs = {{ volcano | safe }};
+    plotVolcano(graphs);
+    
+    document.getElementById('volcano-plot').on('plotly_click', (data) => {
+
+      const gene = data['points'][0]['customdata'][0];
+      document.getElementById('gene-name').innerText = gene;
+      plotGeneExpression(gene);
+      plotGeneNetwork(gene);
+
+      document.getElementById('gene-corr-plot').innerHTML = '';
+
+  });
+
+});
+
+
+</script>
+{% endblock %}

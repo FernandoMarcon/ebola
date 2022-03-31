@@ -1,6 +1,4 @@
 flask
-pandas
-pymongo
 python-dotenv
-flask-mongoengine
-Flask-PyMongo
+pandas
+plotly

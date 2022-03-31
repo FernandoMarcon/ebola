@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-graph.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.8.0/js/anychart-data-adapter.min.js"></script>
+
+    <title>Document</title>
+
+    <style>
+        .anychart-credits {
+          display: none;
+        }
+      </style>
+
+</head>
+<body>
+    <div id="corr-net" style="height: 800px; width: 800px;"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const gene_name = 'HESX1';
+            const cohort = 'Geneva'
+            const corr_thrs = 0.45;
+            
+            const endpoint = `/corr/${cohort}/${gene_name}`;
+            // document.getElementById('corr-net').innerHTML = endpoint;
+
+            async function fetchCorrData() {
+                const response = await fetch(endpoint);
+                const data = await response.json();
+                return data['gene_corr'];
+            }
+
+            fetchCorrData()
+            .then(data => {
+                const nodes = [{'id':gene_name, 'cor': 1}];
+                const edges = [];
+                
+                data.forEach((item) => {
+                    let corr =  parseFloat(item['rho']);
+                    if( Math.abs(corr) > corr_thrs){
+                        
+                        nodes.push({
+                            'id':item['target'],
+                            'cor':corr
+                        });
+                        
+                        edges.push({
+                            'from':gene_name,
+                            'to':item['target'],
+                            });
+                        }
+                    });
+                
+                var chart = anychart.graph({nodes, edges});
+                chart.container('corr-net');
+                
+                // var node = chart.nodes();
+                
+                chart.interactivity().scrollOnMouseWheel(false);
+                chart.credits(false);
+                chart.fit().draw();
+
+                });
+            });        
+    </script>
+</body>
+</html>

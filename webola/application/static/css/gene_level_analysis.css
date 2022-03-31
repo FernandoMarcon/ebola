@@ -1,0 +1,374 @@
+.gene_level_analysis-container {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+  }
+  .gene_level_analysis-navbar {
+    width: 100%;
+    height: 21px;
+    display: flex;
+    padding: var(--dl-space-space-oneandhalfunits);
+    position: relative;
+    max-width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F7601B;
+  }
+  .gene_level_analysis-nav-logo {
+    display: flex;
+  }
+  .gene_level_analysis-logo {
+    color: var(--dl-color-gray-white);
+    width: 100%;
+    font-size: 40px;
+    text-align: left;
+  }
+  .gene_level_analysis-text1 {
+    font-style: italic;
+  }
+  .gene_level_analysis-nav-pages {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gene_level_analysis-genelevelanalysis {
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    margin-left: var(--dl-space-space-halfunit);
+    margin-right: var(--dl-space-space-halfunit);
+  }
+  .gene_level_analysis-imunogenicity {
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    margin-left: var(--dl-space-space-halfunit);
+    margin-right: var(--dl-space-space-halfunit);
+  }
+  .gene_level_analysis-reactogenicity {
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    margin-left: var(--dl-space-space-halfunit);
+    margin-right: var(--dl-space-space-halfunit);
+  }
+  .gene_level_analysis-nav-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .gene_level_analysis-home {
+    fill: #D9D9D9;
+    width: 32px;
+    height: 56px;
+  }
+  .gene_level_analysis-about {
+    fill: #D9D9D9;
+    width: 24px;
+    height: 24px;
+    margin-left: var(--dl-space-space-halfunit);
+    margin-right: var(--dl-space-space-halfunit);
+  }
+  .gene_level_analysis-title-menu {
+    width: 100%;
+    display: flex;
+    padding: var(--dl-space-space-halfunit);
+    max-width: 100%;
+    align-items: center;
+    flex-direction: column;
+  }
+  .gene_level_analysis-page-ttitle {
+    font-size: 2em;
+    margin-top: var(--dl-space-space-halfunit);
+  }
+  .gene_level_analysis-main-menu-row {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-self: flex-start;
+    justify-content: flex-start;
+  }
+  .gene_level_analysis-main-menu-group {
+    flex: 1;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .gene_level_analysis-button {
+    margin: var(--dl-space-space-halfunit);
+    padding: var(--dl-space-space-halfunit);
+    font-size: 16px;
+    border-width: 0px;
+  }
+  .gene_level_analysis-button1 {
+    margin: var(--dl-space-space-halfunit);
+    font-size: 16px;
+    border-color: var(--dl-color-gray-white);
+    border-width: 0px;
+  }
+  .gene_level_analysis-content {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .gene_level_analysis-volcano {
+    flex: 1;
+    width: 200px;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0px;
+    margin-right: var(--dl-space-space-halfunit);
+    padding-left: var(--dl-space-space-halfunit);
+    padding-right: var(--dl-space-space-unit);
+    flex-direction: column;
+    padding-bottom: 0px;
+  }
+  .gene_level_analysis-volcano-input {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    padding: 0px;
+    margin-top: 0px;
+    align-items: flex-start;
+    margin-left: var(--dl-space-space-halfunit);
+    margin-right: var(--dl-space-space-halfunit);
+    margin-bottom: 0px;
+    justify-content: flex-start;
+  }
+  .gene_level_analysis-log-f-c {
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    padding-top: var(--dl-space-space-halfunit);
+    padding-left: var(--dl-space-space-halfunit);
+    padding-right: var(--dl-space-space-halfunit);
+    flex-direction: column;
+    padding-bottom: var(--dl-space-space-halfunit);
+    justify-content: center;
+  }
+  .gene_level_analysis-text4 {
+    font-size: 16px;
+    margin-top: var(--dl-space-space-halfunit);
+    margin-left: var(--dl-space-space-halfunit);
+    margin-right: var(--dl-space-space-halfunit);
+    margin-bottom: var(--dl-space-space-halfunit);
+  }
+  .gene_level_analysis-f-d-r {
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    padding-top: var(--dl-space-space-halfunit);
+    padding-left: var(--dl-space-space-halfunit);
+    padding-right: var(--dl-space-space-halfunit);
+    flex-direction: column;
+    padding-bottom: var(--dl-space-space-halfunit);
+    justify-content: center;
+  }
+  .gene_level_analysis-text5 {
+    margin: var(--dl-space-space-halfunit);
+    font-size: 16px;
+  }
+  .gene_level_analysis-volcano-plot {
+    flex: 1;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    box-shadow: 2px 2px 10px 5px #999999;
+    margin-top: 0px;
+    align-items: flex-start;
+    margin-left: var(--dl-space-space-halfunit);
+    padding-top: 0px;
+    margin-right: var(--dl-space-space-halfunit);
+    padding-left: var(--dl-space-space-halfunit);
+    border-radius: var(--dl-radius-radius-radius8);
+    margin-bottom: 0px;
+    padding-right: var(--dl-space-space-halfunit);
+    padding-bottom: 0px;
+    background-color: var(--dl-color-gray-white);
+  }
+  .gene_level_analysis-gene {
+    flex: 1;
+    width: 200px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .gene_level_analysis-gene-exprs {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0px;
+    padding-left: var(--dl-space-space-halfunit);
+    padding-right: var(--dl-space-space-oneandhalfunits);
+    flex-direction: column;
+    padding-bottom: 0px;
+    justify-content: flex-start;
+  }
+  .gene_level_analysis-gene-exprs-input {
+    flex: 0;
+    width: 100%;
+    display: flex;
+    padding: 0px;
+    margin-top: var(--dl-space-space-halfunit);
+    align-items: center;
+    margin-left: var(--dl-space-space-halfunit);
+    margin-right: var(--dl-space-space-halfunit);
+    margin-bottom: var(--dl-space-space-halfunit);
+    justify-content: space-between;
+  }
+  .gene_level_analysis-search-gene {
+    flex: 0 0 auto;
+    display: flex;
+    align-self: center;
+    align-items: center;
+  }
+  .gene_level_analysis-icon2 {
+    width: 24px;
+    height: 24px;
+    align-self: center;
+  }
+  .gene_level_analysis-container1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gene_level_analysis-text6 {
+    font-size: 10px;
+  }
+  .gene_level_analysis-gene-exprs-plot {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 100;
+    box-shadow: 2px 2px 10px 5px #999999;
+    margin-top: 0px;
+    margin-left: var(--dl-space-space-halfunit);
+    padding-top: 0px;
+    margin-right: var(--dl-space-space-halfunit);
+    padding-left: var(--dl-space-space-halfunit);
+    border-radius: var(--dl-radius-radius-radius8);
+    margin-bottom: 0px;
+    padding-right: var(--dl-space-space-halfunit);
+    padding-bottom: 0px;
+    background-color: var(--dl-color-gray-white);
+  }
+  .gene_level_analysis-gene-corr {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0px;
+    padding-left: var(--dl-space-space-halfunit);
+    padding-right: var(--dl-space-space-oneandhalfunits);
+    flex-direction: column;
+    padding-bottom: 0px;
+  }
+  .gene_level_analysis-gene-cor-input {
+    flex: 0;
+    width: 100%;
+    margin: var(--dl-space-space-halfunit);
+    display: flex;
+    padding: 0px;
+    align-self: flex-start;
+    align-items: center;
+  }
+  .gene_level_analysis-text7 {
+    font-size: 16px;
+    margin-top: var(--dl-space-space-unit);
+    margin-left: var(--dl-space-space-unit);
+    margin-right: var(--dl-space-space-unit);
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .gene_level_analysis-gene-corr-plot {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    box-shadow: 2px 2px 10px 5px #999999;
+    margin-top: 0px;
+    align-items: stretch;
+    margin-left: var(--dl-space-space-halfunit);
+    padding-top: 0px;
+    margin-right: var(--dl-space-space-halfunit);
+    padding-left: var(--dl-space-space-halfunit);
+    border-radius: var(--dl-radius-radius-radius8);
+    margin-bottom: 0px;
+    padding-right: var(--dl-space-space-halfunit);
+    padding-bottom: 0px;
+    background-color: var(--dl-color-gray-white);
+  }
+  .gene_level_analysis-footer {
+    width: 100%;
+    display: flex;
+    padding: var(--dl-space-space-halfunit);
+    position: relative;
+    max-width: 100%;
+    align-self: center;
+    max-height: var(--dl-size-size-small);
+    align-items: center;
+    justify-content: center;
+  }
+  .gene_level_analysis-csbl-logo {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+  }
+  .gene_level_analysis-rights {
+    width: 100%;
+    align-self: center;
+    text-align: center;
+  }
+  @media(max-width: 767px) {
+    .gene_level_analysis-navbar {
+      padding-left: var(--dl-space-space-twounits);
+      padding-right: var(--dl-space-space-twounits);
+    }
+    .gene_level_analysis-title-menu {
+      padding-left: var(--dl-space-space-twounits);
+      padding-right: var(--dl-space-space-twounits);
+    }
+    .gene_level_analysis-footer {
+      padding-left: var(--dl-space-space-twounits);
+      padding-right: var(--dl-space-space-twounits);
+    }
+    .gene_level_analysis-rights {
+      text-align: center;
+      margin-left: var(--dl-space-space-unit);
+      margin-right: var(--dl-space-space-unit);
+    }
+  }
+  @media(max-width: 479px) {
+    .gene_level_analysis-navbar {
+      padding: var(--dl-space-space-unit);
+    }
+    .gene_level_analysis-title-menu {
+      padding: var(--dl-space-space-unit);
+    }
+    .gene_level_analysis-footer {
+      padding: var(--dl-space-space-unit);
+      flex-direction: column;
+    }
+    .gene_level_analysis-rights {
+      margin-left: 0px;
+      margin-right: 0px;
+      margin-bottom: var(--dl-space-space-unit);
+    }
+  }
+  

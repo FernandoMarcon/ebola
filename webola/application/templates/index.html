@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEbola</title>
+</head>
+<body>
+    <div><img style="width: 20%; height: 30%;"src="{{ url_for('static', filename='logo/logo.png') }}" alt="logo"></div>
+    <hr>
+    <div>
+        <h1>Analysis</h1>
+        <button id="button-GeneExpression" class="float-left submit-button" >Gene Expression</button>
+        <button id="button-lncRNAS" class="float-left submit-button" >lncRNAs</button>
+    </div>
+
+    <script type="text/javascript">
+        document.getElementById("button-GeneExpression").onclick = function () {
+            location.href = "{{url_for('gene_expression')}}";
+        };
+
+        document.getElementById("button-lncRNAS").onclick = function () {
+            location.href = "{{url_for('lncRNAs')}}";
+        };
+    </script>
+    <hr>
+    <div id="cohorts">
+        <h1>VSV Consortium</h1>
+        <div id="VSV-EBOVAC">
+            <img src="{{ url_for('static', filename='logo/vsv-ebovac.png')}}" alt="vsv-ebovac-logo">
+            <h2>VSV-EBOVAC</h1>
+            <h3>Vaccine safety and immunogenicity signatures of human responses to rVSV-ZEBOV</h3>
+            <p>Is a collaborative research programme aimed to characterize the immune response elicited in humans by the Vesicular Stomatitis Virus (VSV)-vectored Zaire Ebola vaccine (rVSV-ZEBOV).</p>
+            <a href="https://vsv-ebovac.eu/">Read more</a>
+        </div>
+        <div id="VSV-EBOPLUS">
+            <img src="{{ url_for('static', filename='logo/VSV-EBOPLUS.png')}}" alt="vsv-eboplus-logo">
+            <h2>VSV-EBO+</h1>
+            <h3>Systems analysis of adult and pediatric responses to the VSV-ZEBOV Ebola vaccine</h3>
+            <p>Aimed to decipher the immune and molecular signatures of adult and pediatric responses elicited by the rVSVrG-ZEBOV-GP (Ervebo®) vaccine. This is the first vaccine approved for prevention of Ebola virus disease and is based on a live-attenuated recombinant vesicular stomatitis virus vector expressing the glycoprotein G of Zaire Ebolavirus.</p>
+            <a href="https://vsv-eboplus.eu/">Read more</a>
+        </div>
+        <div id="VEBCON">
+            <h2>VEBCON</h1>
+            <h3>Description</h3>
+            <p>Summary</p>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/28434944/">Read more</a>
+        </div>
+        
+    </div>
+</body>
+</html>

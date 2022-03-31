@@ -1,0 +1,4 @@
+mysql_host: 'localhost'
+mysql_user: 'csbl'
+mysql_password:  'csbl2021'
+mysql_db: 'EbolaDB'

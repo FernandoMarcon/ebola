@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>New Project</title>
+    <meta property="og:title" content="New Project" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <style>
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6 {  margin: 0;  padding: 0;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}
+    </style>
+    <style>
+      html {
+        /* font-family: Inter; */
+        font-family: 'DM Sans', sans-serif;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"/>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" />
+    <link href="{{url_for('static',filename='css/gene_level_analysis.css')}}" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/aa9f311fd2.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div>
+      <div class="gene_level_analysis-container">
+
+    <!-- HEADER -->
+        <header data-role="Header" class="gene_level_analysis-navbar">
+          
+          <!-- Logo -->
+          <div class="gene_level_analysis-nav-logo">
+            <span class="gene_level_analysis-logo">
+              <span class="gene_level_analysis-text1"><strong><span style="color: black;">W</span></strong><span><em>Ebola</em></span></span>
+            </span>
+          </div>
+
+          <!-- Main Menu -->
+          <div class="gene_level_analysis-nav-pages">
+            <span class="gene_level_analysis-genelevelanalysis">
+              <span><a href="{{url_for('gene_level_analysis')}}">Gene-level Analysis</a></span>
+            </span>
+            <span class="gene_level_analysis-imunogenicity">
+              <span><a href="{{url_for('immunogenicity')}}">Immunogenicity</a></span>
+            </span>
+            <span class="gene_level_analysis-reactogenicity">
+              <a href="{{url_for('reactogenicity')}}">Reactogenicity</a>
+            </span>
+          </div>
+
+          <!-- Icons -->
+          <div class="gene_level_analysis-nav-icons">
+            <!-- <i class="fas fa-home"></i> -->
+            <!-- <i class="fas fa-question"></i> -->
+
+            <svg
+              viewBox="0 0 950.8571428571428 1024"
+              class="gene_level_analysis-home"
+            >
+              <path
+                d="M804.571 566.857v274.286c0 20-16.571 36.571-36.571 36.571h-219.429v-219.429h-146.286v219.429h-219.429c-20 0-36.571-16.571-36.571-36.571v-274.286c0-1.143 0.571-2.286 0.571-3.429l328.571-270.857 328.571 270.857c0.571 1.143 0.571 2.286 0.571 3.429zM932 527.429l-35.429 42.286c-2.857 3.429-7.429 5.714-12 6.286h-1.714c-4.571 0-8.571-1.143-12-4l-395.429-329.714-395.429 329.714c-4 2.857-8.571 4.571-13.714 4-4.571-0.571-9.143-2.857-12-6.286l-35.429-42.286c-6.286-7.429-5.143-19.429 2.286-25.714l410.857-342.286c24-20 62.857-20 86.857 0l139.429 116.571v-111.429c0-10.286 8-18.286 18.286-18.286h109.714c10.286 0 18.286 8 18.286 18.286v233.143l125.143 104c7.429 6.286 8.571 18.286 2.286 25.714z"
+              ></path></svg
+            ><svg viewBox="0 0 634.88 1024" class="gene_level_analysis-about">
+              <path
+                d="M402.286 717.714v137.143c0 12.571-10.286 22.857-22.857 22.857h-137.143c-12.571 0-22.857-10.286-22.857-22.857v-137.143c0-12.571 10.286-22.857 22.857-22.857h137.143c12.571 0 22.857 10.286 22.857 22.857zM582.857 374.857c0 108.571-73.714 150.286-128 180.571-33.714 19.429-54.857 58.857-54.857 75.429v0c0 12.571-9.714 27.429-22.857 27.429h-137.143c-12.571 0-20.571-19.429-20.571-32v-25.714c0-69.143 68.571-128.571 118.857-151.429 44-20 62.286-38.857 62.286-75.429 0-32-41.714-60.571-88-60.571-25.714 0-49.143 8-61.714 16.571-13.714 9.714-27.429 23.429-61.143 65.714-4.571 5.714-11.429 9.143-17.714 9.143-5.143 0-9.714-1.714-14.286-4.571l-93.714-71.429c-9.714-7.429-12-20-5.714-30.286 61.714-102.286 148.571-152 265.143-152 122.286 0 259.429 97.714 259.429 228.571z"
+              ></path>
+            </svg>
+          </div>
+        </header>
+
+        {% block content %}
+        <!-- CONTENT -->
+        {% endblock %}
+
+        <!-- FOOTER -->
+        <footer class="gene_level_analysis-footer">
+          <img alt="csbl-logo" src="{{url_for('static',filename='img/logo/csbl_minimal.png')}}" class="gene_level_analysis-csbl-logo" />
+          <span class="gene_level_analysis-rights"> © 2021 CSBL, All Rights Reserved. </span>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
