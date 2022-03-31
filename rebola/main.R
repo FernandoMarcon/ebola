@@ -1,13 +1,15 @@
 rm(list = ls())
 
-library(dplyr)
-
-source('src/data_retrieval.r')
-source('src/gene_expression_pprocessing.R')
-source("src/gene_expression_normCPM.R")
-source("src/gene_expression_corr.R")
-# source("src/gene_expression_reannotation.R")
-# source("src/gene_expression_normBL.R")
+# devtools::install_github("FernandoMarcon/REbola")
+library(REbola)
+library(tidyverse)
+  
+  # source('src/data_retrieval.r')
+  # source('src/gene_expression_pprocessing.R')
+  # source("src/gene_expression_normCPM.R")
+  # source("src/gene_expression_corr.R")
+  # source("src/gene_expression_reannotation.R")
+  # source("src/gene_expression_normBL.R")
 
 #INPUT
 consort = "EBOPLUS"
