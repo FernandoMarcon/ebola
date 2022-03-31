@@ -1,0 +1,65 @@
+
+# USA
+volunteer = {
+		volunteer_id,
+		gender,
+		dose,
+		treatment,
+		age,
+		chills,
+		myalgia,
+		pyrexia,
+		pain,
+		althrlalgia
+		samples : {s1, s2, ...}
+	}
+
+sample = {
+		sample_id,
+		sampling_day,
+		mapped_reads,
+		on_target,
+		#volunteer_id
+
+	}
+
+#### Germany
+volunteer : {
+	volunteer_id,
+	samples : { s1, s2, ...}
+	}
+
+sample : {
+	sample_id,
+	volunteer_id,
+	timepoint
+	}
+
+#### Geneva
+volunteer : {
+	volunteer_id,
+	gender,
+	dose,
+	arthriths,
+	age,
+	obj_fever,
+	myalgia,
+	chills,
+	viremia_d1,
+	treatment,
+	samples: {s1, s2, ....}
+	}
+
+sample : {
+	sample_id,
+	volunteer_id,
+	sampling_day,
+	group_day,
+	mapped_reads,
+	on_target,
+	library_batch,
+	fever,
+	pain,
+	subj_fever,
+	viremia,
+
